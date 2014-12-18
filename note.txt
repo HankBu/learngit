@@ -24,6 +24,8 @@ git log
 
     --pretty=oneline 只显示版本号和提交注视
 
+    穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
+
 
 在 git 中，当前版本用 HEAD 表示，上一个版本是 HEAD^ ,上上个版本是 HEAD^^
 
@@ -42,6 +44,8 @@ git reflog
     
     查看每一次的版本id
 
+    要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
+
 git diff HEAD -- readme.txt 
     
     查看工作区与版本库里面的文件区别
@@ -56,13 +60,14 @@ git checkout -- readme.txt
     把 readme.txt 文件在工作区的修改全部撤销
 
     1、如果文件修改后，还没有放到暂寸区，撤销后，和版本的一样
-    2、如果文件已经放到暂存区，撤销户，回到暂存区的状态
+
+    2、如果文件已经放到暂存区后(git add 过了)，又作了修改，现在，撤销修改就回到添加到暂存区后(git add 后)的状态。
 
 
 git reset HEAD readme.txt 
     
     把暂存区的文件撤销掉，重新放回工作区
-    
+
 
 git rm test.php
     
