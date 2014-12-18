@@ -55,12 +55,19 @@ git diff <source_branch> <target_branch>
 
 
 
+
 git checkout -- readme.txt 
     
     把 readme.txt 文件在工作区的修改全部还原
 
+<<<<<<< HEAD
     1、如果文件修改后，还没有放到暂寸区，还原后，和版本的一样
     2、如果文件已经放到暂存区后(git add 过了)，又作了修改，现在，撤销修改就还原到添加到暂存区后(git add 后)的状态。
+=======
+    1、如果文件修改后，还没有放到暂寸区，撤销后，和版本的一样
+
+    2、如果文件已经放到暂存区后(git add 过了)，又作了修改，现在，撤销修改就回到添加到暂存区后(git add 后)的状态。
+>>>>>>> master
 
 
 git reset HEAD readme.txt 
