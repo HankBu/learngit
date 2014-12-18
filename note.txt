@@ -294,4 +294,5 @@ git config --global alias.st status
 
     配置文件放哪了？每个仓库的Git配置文件都放在.git/config文件中：
 
+    测试用，故意confilict
 
