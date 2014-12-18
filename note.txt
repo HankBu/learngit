@@ -297,3 +297,5 @@ git config --global alias.st status
     测试用，故意confilict
 
     asdfasd
+
+    ddddd
