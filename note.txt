@@ -1,3 +1,5 @@
+The code is in homeworking
+
 git init 
     命令把这个目录变成git 可以管理的仓库
 
