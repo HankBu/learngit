@@ -47,7 +47,8 @@ git reflog
     要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
 
 git diff HEAD -- readme.txt 
-    
+git diff <source_branch> <target_branch>
+
     查看工作区与版本库里面的文件区别
 
 
@@ -56,15 +57,22 @@ git diff HEAD -- readme.txt
 
 git checkout -- readme.txt 
     
-    把 readme.txt 文件在工作区的修改全部撤销
+    把 readme.txt 文件在工作区的修改全部还原
 
-    1、如果文件修改后，还没有放到暂寸区，撤销后，和版本的一样
-    2、如果文件已经放到暂存区后(git add 过了)，又作了修改，现在，撤销修改就回到添加到暂存区后(git add 后)的状态。
+    1、如果文件修改后，还没有放到暂寸区，还原后，和版本的一样
+    2、如果文件已经放到暂存区后(git add 过了)，又作了修改，现在，撤销修改就还原到添加到暂存区后(git add 后)的状态。
 
 
 git reset HEAD readme.txt 
     
     把暂存区的文件撤销掉，重新放回工作区
+
+
+    场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+
+    场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+
+    场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。
 
 
 git rm test.php
@@ -175,6 +183,7 @@ git stash
 
 
 git stash pop
+
     将存储起来的内容，恢复
 
 
@@ -185,25 +194,43 @@ git stash pop
 
 
 
-git remote
 
-    －v 显示更详细的信息
+git remote -v
 
     查看远程分支的信息
+
+
+git pull
+
+    从远程抓取分支
+
+
+git push origin branch-name
+
+    从本地推送分支
+
+
+git checkout -b branch-name origin/branch-name
+
+    在本地创建和远程分支对应的分支，本地和远程分支的名称最好一致；
+
+
+git branch --set-upstream branch-name origin/branch-name
+
+    建立本地分支和远程分支的关联
 
 
 
 
 标签
 
-
-
 切换到需要打标签的分支上
 
 
 git tag <name>
 
-    打一个新的标签  <name> 标签名
+    打一个新的标签  <name> 标签名 也可以指定一个 commit id
+
 
 git tag
 
@@ -213,6 +240,7 @@ git tag
 git tag v789 7a7e436
 
     根据某个提交id ,打新的标签
+
 
 git show v789
     查看标签信息
@@ -234,17 +262,18 @@ git push origin v1.0
     推送标签到远程服务器
 
 
-git push origin —tags
+git push origin --tags
     
     推送本地所有未推送的标签
 
 
 删除远程服务器上面的标签
 
-1、先从本地删除
-    
-    git tag -d v789 
-    
-2、删除远程上的tag
+git tag -d v789 
 
-    git push origin :refs/tags/v0.9
+    1、先从本地删除
+
+git push origin :refs/tags/v0.9
+
+    2、删除远程上的tag
+
