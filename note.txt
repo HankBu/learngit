@@ -296,4 +296,11 @@ git config --global alias.st status
 
 
 
-这里是dev分支
+git revert HEAD
+
+    撤销前一次 commit
+    git 会自动生成一个 Revert “<previous commit>” 为注释的新 commit
+
+git revert HEAD^
+
+    撤销前前一次 commit
