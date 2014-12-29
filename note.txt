@@ -19,17 +19,29 @@ git commit -m "add readme.text file”
     
     把文件提交到仓库，-m 是本次的提交说明
 
+git fetch origin dev
+
+    远端的源仓库更新到本地的代码仓库
+
 git diff readme.txt
     
     查看文件修改内容
 
-git log 
+git diff HEAD -- readme.txt 
 
-    查看版本提交记录，-pretty=oneline 只显示版本号和提交注释
-    穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
+    查看HEAD和现在文件区别
 
-    在 git 中，当前版本用 HEAD 表示，上一个版本是 HEAD^ ,上上个版本是 HEAD^^
-    往上 100 个版本就是 100 个 ^ ,难写，所以写成 HEAD~100
+git diff <source_branch> <target_branch>
+
+    eg: git diff master origin/master
+    查看工作区与版本库里面的文件区别
+    单独进行下载和合并是一个好的做法，你可以先看看下载的是什么，然后再决定是否和本地代码合并。而且分开来做，可以清晰的区别开本地分支和远程分支，方便选择使用。
+
+git checkout -- readme.txt 
+    
+    把 readme.txt 文件在工作区的修改全部还原
+    1、如果文件修改后，还没有放到暂寸区，撤销后，和版本的一样
+    2、如果文件已经放到暂存区后(git add 过了)，又作了修改，现在，撤销修改就回到添加到暂存区后(git add 后)的状态。
 
 git reset --hard HEAD^
     
@@ -38,22 +50,6 @@ git reset --hard HEAD^
 git reset --hard eb7378897e8996f1e
     
     根据版本号回到此版本
-
-git reflog
-    
-    查看每一次的版本id
-    要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
-
-git diff HEAD -- readme.txt 
-git diff <source_branch> <target_branch>
-
-    查看工作区与版本库里面的文件区别
-
-git checkout -- readme.txt 
-    
-    把 readme.txt 文件在工作区的修改全部还原
-    1、如果文件修改后，还没有放到暂寸区，撤销后，和版本的一样
-    2、如果文件已经放到暂存区后(git add 过了)，又作了修改，现在，撤销修改就回到添加到暂存区后(git add 后)的状态。
 
 git reset HEAD readme.txt 
     
@@ -65,6 +61,19 @@ git reset HEAD readme.txt
 git rm test.php
     
     删除版本库里面的文件，需要再次 commit 
+
+git log 
+
+    查看版本提交记录，-pretty=oneline 只显示版本号和提交注释
+    穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
+
+    在 git 中，当前版本用 HEAD 表示，上一个版本是 HEAD^ ,上上个版本是 HEAD^^
+    往上 100 个版本就是 100 个 ^ ,难写，所以写成 HEAD~100
+
+git reflog
+    
+    查看每一次的版本id
+    要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
 
 
 
