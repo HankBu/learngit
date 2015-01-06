@@ -37,6 +37,11 @@ git diff <source_branch> <target_branch>
     查看工作区与版本库里面的文件区别
     单独进行下载和合并是一个好的做法，你可以先看看下载的是什么，然后再决定是否和本地代码合并。而且分开来做，可以清晰的区别开本地分支和远程分支，方便选择使用。
 
+git diff <source_branch> <target_branch> <filename>
+
+    eg: git diff local-dev dev readme.txt
+    比较某个文件和远程分支上的区别
+
 git checkout -- readme.txt 
     
     把 readme.txt 文件在工作区的修改全部还原
@@ -132,6 +137,10 @@ git branch
 git branch -r
 
     查看远程分支
+
+git branch -a
+
+    查看(本地仓库，包含:remotes)所有分支
 
 git branch <branch-name>
     
