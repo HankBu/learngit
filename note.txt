@@ -276,4 +276,6 @@ git revert HEAD^
 
     撤销前前一次 commit
 
+git cherry-pick <commit_id>
 
+    已经提交的commit, 从一个分支放到另一个分支
