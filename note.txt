@@ -279,3 +279,7 @@ git revert HEAD^
 git cherry-pick <commit_id>
 
     用于把另一个本地分支的commit修改应用到当前分支
+
+git commit --amend
+    
+    修改最后一次提交
