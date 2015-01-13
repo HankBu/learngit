@@ -283,3 +283,10 @@ git cherry-pick <commit_id>
 git commit --amend
     
     修改最后一次提交
+    会启动文本编辑器vim，修改提交说明
+    键盘输入字母 " i " 进入最常用的插入编辑模式(insert mode)
+    按下 " ESC " 键进入命令模式
+    键入" :wq "保存并退出
+    键入 " :q! " 放弃所有文件修改
+    键入 " :e! " 放弃所有文件修改，但不退出 vi
+    
