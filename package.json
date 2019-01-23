@@ -10,11 +10,16 @@
     "type": "git",
     "url": "git+https://github.com/HankBu/learngit.git"
   },
-  "keywords": ["learn"],
+  "keywords": [
+    "learn"
+  ],
   "author": "HankBu",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/HankBu/learngit/issues"
   },
-  "homepage": "https://github.com/HankBu/learngit#readme"
+  "homepage": "https://github.com/HankBu/learngit#readme",
+  "devDependencies": {
+    "eslint": "^5.12.1"
+  }
 }
