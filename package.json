@@ -4,7 +4,9 @@
   "description": "learn npm working",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslintinit": "eslint --init",
+    "eslint": "eslint *.js"
   },
   "repository": {
     "type": "git",

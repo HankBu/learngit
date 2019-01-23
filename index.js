@@ -1,5 +1,7 @@
 const str = 'some value';
 
 function fn(){
-    console.log('some log');
+    alert(str);
+    // console.log('some log');
 }
+fn();
