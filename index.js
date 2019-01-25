@@ -1,4 +1,4 @@
-const str = 'some value';
+let str = 'some value';
 
 function fn(){
     alert(str);

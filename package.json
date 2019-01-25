@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslintinit": "eslint --init",
-    "eslint": "eslint *.js"
+    "lint:js": "eslint *.js",
+    "lint:js:fix": "npm run lint:js -- --fix & wait",
+    "combine": "npm run lint:js:fix"
   },
   "repository": {
     "type": "git",
