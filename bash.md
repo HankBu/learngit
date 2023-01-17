@@ -320,3 +320,10 @@ eval $(type FUNCTION_NAME | grep 'declare desc=') && echo "$desc"
 • 在期望或导出环境变量时，考虑可能涉及子 shell 的命名空间变量.
 • 使用硬tab符。Heredocs忽略了前导tab符，允许更好的缩进.
 ```
+# Vim
+```
+vim xxx
+进入后
+:set nu
+显示行号
+```
