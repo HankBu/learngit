@@ -28,7 +28,7 @@ nginx -s reopen 重新启动
 # 查看完整命令
 nginx -h
 # 校验nginx的配置
-nginx -t -q
+nginx -t
 
 # nginx的安装路径
 /opt/homebrew/Cellar/nginx/1.23.1
@@ -36,6 +36,20 @@ nginx -t -q
 /opt/homebrew/etc/nginx/nginx.conf
 # nginx的服务器默认路径 Docroot
 /opt/homebrew/var/www
+
+## linux 临时
+# nginx的安装路径
+# /Cellar/nginx/1.23.1
+# nginx的配置文件路径
+/etc/nginx/nginx.conf
+# nginx的服务器默认路径 Docroot
+/usr/share/nginx/html
+
+/etc/nginx
+/usr/share/nginx
+/usr/lib64/nginx
+/usr/sbin/nginx
+/var/log/nginx
 ```
 ## 配置
 ### 配置文件 nginx.conf
@@ -95,3 +109,30 @@ $document_uri #与$uri相同。
 
 ### 反向代理
 [fisrt](https://xuexb.github.io/learn-nginx/example/proxy_pass.html)
+
+### 页面开启 https
+去[腾讯云证书](https://console.cloud.tencent.com/ssl)申请免费一年，来年需要再续期。
+进到证书详情，手动部署，下载证书，下载nginx证书。得到 .crt 文件 和 .key 文件。
+上传证书到服务器，在服务器上创建一个文件夹，用于存放证书文件，我的路径为：/home/SSL。
+安装证书，/etc/nginx/nginx.conf 配置，关键几个配置如下
+```yaml
+server {
+    listen       443 ssl http2;
+    listen       [::]:443 ssl http2;
+    server_name  www.hicss.net;
+    location / {
+        root    /usr/share/nginx/html/hicss/public;
+    }
+    ssl_certificate "/home/SSL/www.hicss.net_bundle.crt";
+    ssl_certificate_key "/home/SSL/www.hicss.net.key";
+}
+```
+### 页面 http 自动转 https
+```yaml
+server {
+    listen       80;
+    listen       [::]:80;
+    server_name  hicss.net www.hicss.net;
+    rewrite ^(.*) https://www.hicss.net$1 permanent;
+}
+```
