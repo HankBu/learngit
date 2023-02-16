@@ -8,6 +8,7 @@
 查看80端口  netstat -anp | grep 80
 查找进程    ps -ef | grep nginx 
 查找文件夹  find / -name nginx
+免密登录    ssh-copy-id username@remote-server
 ````
 
 ## 借鉴相关小册
