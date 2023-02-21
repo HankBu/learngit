@@ -1,16 +1,17 @@
 git init 
+
     命令把这个目录变成git 可以管理的仓库
 
 git add 文件名
+
      把文件添加到仓库
 
-
 git status 
+
     git 仓库的状态
 
-
 git commit -m "add readme.text file”
-    
+
     把文件提交到仓库
     
     -m 是本次的提交说明
@@ -20,28 +21,26 @@ git diff readme.txt
     查看文件修改内容
 
 git log 
+
     查看版本提交记录
 
     --pretty=oneline 只显示版本号和提交注视
 
     穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
 
-
 在 git 中，当前版本用 HEAD 表示，上一个版本是 HEAD^ ,上上个版本是 HEAD^^
 
 往上 100 个版本就是 100 个 ^ ,难写，所以写成 HEAD~100
-
 
 git reset --hard HEAD^
     
     回到上一个版本
 
 git reset --hard eb7378897e8996f1e
-    
+
     根据版本号回到此版本
 
 git reflog
-    
     查看每一次的版本id
 
     要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
@@ -51,11 +50,6 @@ git diff <source_branch> <target_branch>
 
     查看工作区与版本库里面的文件区别
 
-
-
-
-
-
 git checkout -- readme.txt 
     
     把 readme.txt 文件在工作区的修改全部还原
@@ -64,12 +58,9 @@ git checkout -- readme.txt
 
     2、如果文件已经放到暂存区后(git add 过了)，又作了修改，现在，撤销修改就回到添加到暂存区后(git add 后)的状态。
 
-
-
 git reset HEAD readme.txt 
     
     把暂存区的文件撤销掉，重新放回工作区
-
 
     场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
 
@@ -77,14 +68,9 @@ git reset HEAD readme.txt
 
     场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。
 
-
 git rm test.php
-    
+
     删除版本库里面的文件，需要再次 commit 
-
-
-
-
 
 生成 ssh key 
 
@@ -94,34 +80,20 @@ git rm test.php
 
     /Users/yuanchao/.ssh  里面保存了生成的 key .pub 是公钥
 
- 
-
-
 添加远程仓库
-    
     在 git 新建一个仓库
 
     把这个仓库与本地仓库关联
         git remote add origin git@github.com:yccphp/testgit.git （每个仓库不同）
 
-    
     把我们本地仓库的所有内容推送到远程库
         git push -u origin master （第一次）
 
     以后每次提交
         git push origin master
 
-    
-
-
-
-
-
-
 
 从远程仓库克隆
-
-    
     git clone git@github.com:yccphp/gitclonetest.git 
 
     不同的 git 不同的地址
@@ -131,8 +103,7 @@ git rm test.php
 
 创建合并分支
 
-
- checkout -b   分支名
+    checkout -b   分支名
     
     -b 表示创建并且切换
 
@@ -149,8 +120,6 @@ git branch
     
     查看当前分支
 
-
-
 git merge dev
     
     合并指定分支 到当前分支上
@@ -159,11 +128,9 @@ git branch -d dev
 
     删除指定分支
 
-
 git log --graph --pretty=oneline -—abbrev-commit 
     
     查看分支合并情况
-
 
 git merge --no-ff -m "merge with on-ff" dev
 
@@ -171,104 +138,79 @@ git merge --no-ff -m "merge with on-ff" dev
 
     —no-ff 普通合并，合并后的历史有分支，能看的出来曾经做过合并
 
-
-
-
 bug 分支
 
 当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，等等，当前正在dev上进行的工作还没有提交：
-
-
 
 git stash
 
     将当前工作区储存起来，等恢复以后继续工作
 
-
 git stash pop
 
     将存储起来的内容，恢复
 
-
 强行删除分支
+
     git branch -D feature-vulcan
 
     如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
-
-
-
 
 git remote -v
 
     查看远程分支的信息
 
-
 git pull
 
     从远程抓取分支
-
 
 git push origin branch-name
 
     从本地推送分支
 
-
 git checkout -b branch-name origin/branch-name
 
     在本地创建和远程分支对应的分支，本地和远程分支的名称最好一致；
-
 
 git branch --set-upstream branch-name origin/branch-name
 
     建立本地分支和远程分支的关联
 
-
-
-
 标签
 
 切换到需要打标签的分支上
-
 
 git tag <name>
 
     打一个新的标签  <name> 标签名 也可以指定一个 commit id
 
-
 git tag
 
     查看所有标签
-
 
 git tag v789 7a7e436
 
     根据某个提交id ,打新的标签
 
-
 git show v789
     查看标签信息
-
 
 git tag -a dev1.0 -m “开发版"
 
     -a 标签名
     -m 说明
 
-
 git tag -d <name>
 
     删除标签 <name> 标签名
-
 
 git push origin v1.0
 
     推送标签到远程服务器
 
-
 git push origin --tags
     
     推送本地所有未推送的标签
-
 
 删除远程服务器上面的标签
 
@@ -279,4 +221,3 @@ git tag -d v789
 git push origin :refs/tags/v0.9
 
     2、删除远程上的tag
-

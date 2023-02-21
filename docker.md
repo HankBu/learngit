@@ -1,7 +1,8 @@
 # Docker学习笔记
 
-## Docker掘金小册
+## Docker资料
 [小册地址](https://juejin.cn/book/6844733746462064654)
+[Docker从入门到实践](https://yeasy.gitbook.io/docker_practice/)
 [docker仓库](https://hub.docker.com/)
 
 ## 小册笔记
@@ -34,9 +35,16 @@
 进入容器        docker exec -it nginx bash
 ````
 
+## Docker从入门到实践笔记
+```yaml
+Mac安装     brew install --cask docker
+
+```
+
 ## 借鉴相关小册
 [践行DevOps](https://juejin.cn/book/7099044294765314055/section/7099065551682535454)
 ```yaml
 # Nginx 可以充当文件服务器的功能，只需要将文件放在其默认的 
 /usr/share/nginx/html
 ```
+
